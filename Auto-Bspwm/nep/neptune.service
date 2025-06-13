@@ -1,0 +1,11 @@
+[Unit]
+Description=Neptune Audio Visualizer
+After=default.target
+
+[Service]
+ExecStart=%h/.local/bin/user/Neptune-Cli -cli -soundkey nk-cream -volume 1.0
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
