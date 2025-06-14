@@ -50,7 +50,7 @@ sudo apt update && sudo apt upgrade -y
 2. Clone this repository and enter the directory:
 
 ```bash
-git clone https://github.com/GalileoQ/Auto-Bspwm.git
+git clone https://github.com/GalileoQ/Kali_Linux-Auto-Bspwm.git
 cd Auto-Bspwm
 ```
 
