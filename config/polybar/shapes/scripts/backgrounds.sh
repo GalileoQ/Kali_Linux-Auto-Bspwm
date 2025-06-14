@@ -48,7 +48,7 @@ LINK_PATH="$LINK_DIR/${BASE}-16x9.$EXT"
 
 if [ -e "$LINK_PATH" ]; then
   echo "🗑️ Eliminando archivo existente: $LINK_PATH"
-  sudo rm -f "$LINK_PATH"
+  sudo rm -fs "$LINK_PATH"
 fi
 
 echo "🔗 Creando enlace simbólico:"
