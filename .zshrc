@@ -3,9 +3,7 @@
 # ( ) # Hide shell job control messages.
 # Not supported in the "fish" shell.
 
-
 # To add support for TTYs this line can be optionally added.
-
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]

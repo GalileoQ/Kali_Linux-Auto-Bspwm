@@ -4,12 +4,9 @@
 # angled separators, slanted heads, slanted tails, 1 line, sparse, many icons, fluent,
 # transient_prompt, instant_prompt=verbose.
 # Type `p10k configure` to generate another config.
-#
 # Config for Powerlevel10k with powerline prompt style with colorful background.
 # Type `p10k configure` to generate your own config based on it.
-#
 # Tip: Looking for a nice color? Here's a one-liner to print colormap.
-#
 #   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 
 # Temporarily change options.

@@ -1,5 +1,4 @@
 #!/usr/bin/bash
-
 # Author: Galileo Muñoz (aka @Gamuke)
 
 # Colours
@@ -240,10 +239,13 @@ else
 	sudo ln -s "$HOME/.config/polybar/shapes/scripts/backgrounds.sh" /usr/local/bin/backgrounds
 	sudo chmod 644 /usr/share/backgrounds/kali/*
 	sudo chmod +x /usr/local/bin/backgrounds
-	# sudo wal -nqi ~/Wallpapers/Arcane.jpg
 	echo -e "\n${greenColour}[+] Done\n${endColour}"
 	sleep 1.5
+	# esta linea es una modificacion del script themes actualmente no es necesaria
+	# sudo wal -nqi ~/Wallpapers/Arcane.jpg
 
+
+	# este pedazo de codigo es para configurar el grub con un tema personalizado, actualmente no esta en fncionamiento. se agregara esta opcion en un futuro
 #	echo -e "\n${purpleColour}[*] Configuring grub...\n${endColour}"
 #	sleep 2
 #	sudo rm -rf /boot/grub/themes/kali 
