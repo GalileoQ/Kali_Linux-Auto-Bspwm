@@ -238,6 +238,7 @@ else
 	sleep 2
 	sudo cp -rv $dir/backgrounds/* /usr/share/backgrounds/kali
 	sudo ln -s "$HOME/.config/polybar/shapes/scripts/backgrounds.sh" /usr/local/bin/backgrounds
+	sudo chmod 644 /usr/share/backgrounds/kali/*
 	sudo chmod +x /usr/local/bin/backgrounds
 	# sudo wal -nqi ~/Wallpapers/Arcane.jpg
 	echo -e "\n${greenColour}[+] Done\n${endColour}"
