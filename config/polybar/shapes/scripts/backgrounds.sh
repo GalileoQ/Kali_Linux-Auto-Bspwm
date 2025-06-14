@@ -8,26 +8,35 @@ if ! command -v sudo &>/dev/null; then
   echo "❌ 'sudo' no está disponible. Ejecuta el script como root o instala sudo."
   exit 1
 fi
-''
 
-echo -e "\n📸 Usa TAB para autocompletar el nombre de la imagen / Use TAB to autocomplete the image name."
+# Pide solo el nombre de la imagen
+read -e -p "🖼️ Ingresa SOLO el nombre de la imagen (por ejemplo: foto.jpg): " -i "" IMAGE_NAME
 
-# Habilitar autocompletado para archivos de imagen (.jpg, .png, .jpeg, .bmp, .gif)
-# Definimos las extensiones de imagen que se pueden completar
+# Busca la ruta absoluta en el directorio actual
+INPUT_PATH="$(realpath "$IMAGE_NAME" 2>/dev/null)"
 
-IMAGE_EXTENSIONS="*.jpg *.jpeg *.png"
-
-# Usamos read con -e para que permita autocompletar y con -i para texto inicial vacío
-read -e -p "🖼️ Enter the exact image name / Ingresa el nombre exacto de la imagen: " -i "" IMAGE_NAME
-
-# Función para permitir autocompletado manualmente:
-# Se recomienda ejecutar el script en una terminal compatible con readline para que TAB funcione.
-
-if [ ! -f "$ORIGINAL_DIR/$IMAGE_NAME" ]; then
-  echo "❌ La imagen no existe: $ORIGINAL_DIR/$IMAGE_NAME"
+# Verifica que el archivo exista en la ruta obtenida
+if [ ! -f "$INPUT_PATH" ]; then
+  echo "❌ No se encontró el archivo en el directorio actual: $IMAGE_NAME"
   exit 1
 fi
 
+# Ruta destino
+DEST_PATH="$ORIGINAL_DIR/$IMAGE_NAME"
 
+# Si ya existe en el destino, no se copia
+if [ -f "$DEST_PATH" ]; then
+  echo "ℹ️ Ya existe en $DEST_PATH — No se copia de nuevo."
+else
+  echo "📂 Copiando $INPUT_PATH a $DEST_PATH ..."
+  sudo cp "$INPUT_PATH" "$DEST_PATH" || { echo "❌ Error al copiar."; exit 1; }
 
-sudo ln -sf $ORIGINAL_DIR/$IMAGE_NAME $LINK_DIR
+  echo "🔑 Cambiando permisos a 644..."
+  sudo chmod 644 "$DEST_PATH" || { echo "❌ Error al cambiar permisos."; exit 1; }
+fi
+
+# Crea o actualiza el enlace simbólico
+echo "🔗 Creando enlace simbólico en $LINK_DIR ..."
+sudo ln -sf "$DEST_PATH" "$LINK_DIR"
+
+echo "✅ Proceso completado."
