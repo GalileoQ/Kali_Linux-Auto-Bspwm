@@ -26,6 +26,8 @@
 
 [![Ver video resumen](https://img.youtube.com/vi/8aXKnHM00i4/0.jpg)](https://www.youtube.com/watch?v=8aXKnHM00i4)
 
+https://www.youtube.com/watch?v=8aXKnHM00i4&t=34s
+
 Haz clic en la imagen para ver una demo rápida del proyecto en acción.
 
 ---
