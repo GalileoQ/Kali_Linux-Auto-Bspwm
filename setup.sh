@@ -298,7 +298,7 @@ else
 	sudo ln -sfv ~/.config/polybar/shapes/scripts/target /root/.config/polybar/shapes/scripts/target
 	cd ..
 	$HOME/.config/polybar/shapes/scripts/themes.sh /home/kali/Wallpapers/spider-man-dark-cyan-minimal.jpg
-	mkdir -p ~/.config/wal
+	mkdir -p ~/.cache/wal
 	cp -rv $dir/kitty/colors-kitty.conf ~/.cache/wal/colors-kitty.conf
 	echo -e "\n${greenColour}[+] Done\n${endColour}"
 	sleep 1.5

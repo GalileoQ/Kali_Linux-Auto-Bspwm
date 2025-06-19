@@ -4,7 +4,8 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 wmname LG3D &
 vmware-user-suid-wrapper &
-
+# La siguiente line ajusta la polybar a las dimenciones de la pantalla 1920x1080. desactiva este comentario si es necesario
+#xrandr --output Virtual1 --mode 1920x1080 --rate 60 &
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width 0
