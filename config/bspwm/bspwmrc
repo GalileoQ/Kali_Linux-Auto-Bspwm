@@ -27,5 +27,6 @@ bspc rule -a Screenkey manage=off
 
 feh --bg-fill ~/Wallpapers/spider-man-dark-cyan-minimal.jpg &
 ~/.config/polybar/./launch.sh --shapes &
+bspc wm -r
 picom --config ~/.config/picom/picom.conf &
 # wal -R
