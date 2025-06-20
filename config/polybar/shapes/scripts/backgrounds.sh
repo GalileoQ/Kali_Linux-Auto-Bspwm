@@ -1,4 +1,5 @@
-  GNU nano 8.4                                                                     .config/polybar/shapes/scripts/backgrounds.sh                                                                               
+#!/usr/bin/env bash
+# Script para actualizar el fondo de login en Linux                                                                              
 if ! command -v sudo &>/dev/null; then
   echo "❌ 'sudo' no está disponible. Ejecuta el script como root o instala sudo."
   exit 1
