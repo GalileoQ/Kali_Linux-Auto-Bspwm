@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
-# Script para actualizar el fondo de login en Linux                                                                              
+# Script para actualizar el fondo de login en Kali Linux usando ranger
+
+# Directorio con las imágenes que puedes elegir
+ORIGINAL_DIR="/usr/share/backgrounds/kali"
+
+# Ruta donde debe apuntar el enlace simbólico final
+LINK_PATH="/usr/share/desktop-base/kali-theme/login/background"
+
+# Verificar si sudo está disponible
 if ! command -v sudo &>/dev/null; then
   echo "❌ 'sudo' no está disponible. Ejecuta el script como root o instala sudo."
   exit 1
@@ -13,38 +21,34 @@ if [ -n "$1" ]; then
     echo "❌ La imagen no existe: $IMAGE_PATH"
     exit 1
   fi
+
 else
-  # No se pasó argumento: mostrar menú interactivo
-  echo "🖼️ No se pasó ninguna imagen. Usa TAB para seleccionar una desde $ORIGINAL_DIR"
-  echo "🔁 Autocompletado habilitado (estás dentro de $ORIGINAL_DIR)..."
-  cd "$ORIGINAL_DIR" || { echo "❌ No se pudo acceder a $ORIGINAL_DIR"; exit 1; }
 
-  # Leer solo el nombre con autocompletado
-  read -e -p "Selecciona una imagen: " IMAGE_NAME
+  if ! command -v ranger &>/dev/null; then
+    echo "❌ 'ranger' no está instalado. Instálalo con: sudo apt install ranger"
+    exit 1
+  fi
 
-  IMAGE_PATH="$ORIGINAL_DIR/$IMAGE_NAME"
+  echo "📁 Abriendo 'ranger' para seleccionar una imagen..."
+  ranger --choosefile=/tmp/selected_image "$ORIGINAL_DIR" >/dev/tty
+
+  if [ ! -f /tmp/selected_image ]; then
+    echo "❌ No se seleccionó ninguna imagen."
+    exit 1
+  fi
+
+  IMAGE_PATH=$(cat /tmp/selected_image)
 fi
 
-# Validar si la imagen existe
+# Validar que exista
 if [ ! -f "$IMAGE_PATH" ]; then
   echo "❌ La imagen no existe: $IMAGE_PATH"
   exit 1
 fi
 
-IMAGE_NAME=$(basename "$IMAGE_PATH")
-DEST_PATH="$ORIGINAL_DIR/$IMAGE_NAME"
+echo "✅ Imagen seleccionada: $IMAGE_PATH"
+echo "🔗 Creando enlace simbólico en $LINK_PATH ..."
 
-# Si no está copiada en ORIGINAL_DIR, copiarla
-if [ ! -f "$DEST_PATH" ]; then
-  echo "📁 Copiando $IMAGE_PATH a $DEST_PATH ..."
-  sudo cp "$IMAGE_PATH" "$DEST_PATH" || { echo "❌ Error al copiar."; exit 1; }
-  sudo chmod 644 "$DEST_PATH" || { echo "❌ Error al cambiar permisos."; exit 1; }
-else
-  echo "✅ La imagen ya existe en $DEST_PATH"
-fi
+sudo ln -sf "$IMAGE_PATH" "$LINK_PATH" || { echo "❌ Error al crear el enlace simbólico."; exit 1; }
 
-# Crear enlace simbólico
-echo "🔗 Creando enlace simbólico en $LINK_DIR ..."
-sudo ln -sf "$DEST_PATH" "$LINK_DIR" || { echo "❌ Error al crear el enlace simbólico."; exit 1; }
-
-echo "✅ Fondo de login actualizado con '$IMAGE_NAME'"
+echo "✅ Fondo de login actualizado con: $(basename "$IMAGE_PATH")"
