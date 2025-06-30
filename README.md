@@ -111,7 +111,7 @@ This script changes the wallpaper on your main lock screen in Kali Linux.
 
 ---
 
-### Themes
+# Themes
 
 You can extract a color palette from an image and apply it to your entire environment:
 
