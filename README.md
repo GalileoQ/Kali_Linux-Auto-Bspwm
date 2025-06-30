@@ -100,6 +100,7 @@ systemctl --user disable neptune.service
 
 ## 🎨 Wallpapers & Themes
 
+# background
 A custom script called `background` is located at:
 
 ```bash
@@ -110,7 +111,7 @@ This script changes the wallpaper on your main lock screen in Kali Linux.
 
 ---
 
-### Dynamic Theme Application
+### Themes
 
 You can extract a color palette from an image and apply it to your entire environment:
 
