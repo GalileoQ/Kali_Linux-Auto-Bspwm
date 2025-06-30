@@ -155,3 +155,7 @@ ctrl + shift + m
 
 ctrl + @Print
 	flameshot gui
+
+# BurpSuitePro
+ctrl + shift + p
+	/usr/bin/burpsuitepro

@@ -1,26 +1,14 @@
 # Auto-BSPWM
 > A fully automated Bash script to set up a professional and aesthetic hacking environment on Kali Linux using the [bspwm](https://github.com/baskerville/bspwm) tiling window manager.
 
----
-
-## ⚡️ Table of Contents
-- [About](#-about)
-- [Requirements](#-requirements)
-- [Installation](#️-installation)
-- [Usage](#-usage)
-- [Keyboard Sound](#-keyboard-sound)
-- [Wallpapers & Themes](#-wallpapers--themes)
-- [Overview](#-environment-overview)
-- [Keyboard Shortcuts](#️-keyboard-shortcuts)
-- [Software Used](#-software-used)
-- [Troubleshooting](#-troubleshooting)
-- [Credits](#-credits)
-
----
 
 ## 📖 About
 
 **Auto-BSPWM** is a configuration script designed for penetration testers, ethical hackers, and Linux enthusiasts who want a minimal, powerful, and aesthetic desktop setup on Kali Linux. It handles everything from installing and configuring `bspwm`, `polybar`, `themes`, and wallpapers, to adding custom scripts and shortcuts for efficient daily use.
+
+## overview0
+![overview0](/assets/overview0.png "overview0")
+
 
 ## 🎥 Demo del Proyecto
 
@@ -118,7 +106,7 @@ A custom script called `background` is located at:
 ~/.config/polybar/shapes/scripts/background
 ```
 
-Originally designed to update the lock screen background, it currently needs fixing — feel free to contribute!
+This script changes the wallpaper on your main lock screen in Kali Linux.
 
 ---
 
@@ -160,8 +148,6 @@ to your preferred image path.
 Here’s what your desktop will look like once set up:
 
 ## Overview of the environment
-## overview0
-![overview0](/assets/overview0.png "overview0")
 
 ![overview0](/assets/overview0.1.png "overview0.1")
 ## overview1
@@ -286,6 +272,21 @@ It supports multiple languages and shows commands like:
 
 - **Wrong wallpaper after reboot**  
   Press `Win + Alt + R` or edit the line in `bspwmrc` as explained above.
+
+---
+
+## ⚡️ Table of Contents
+- [About](#-about)
+- [Requirements](#-requirements)
+- [Installation](#️-installation)
+- [Usage](#-usage)
+- [Keyboard Sound](#-keyboard-sound)
+- [Wallpapers & Themes](#-wallpapers--themes)
+- [Overview](#-environment-overview)
+- [Keyboard Shortcuts](#️-keyboard-shortcuts)
+- [Software Used](#-software-used)
+- [Troubleshooting](#-troubleshooting)
+- [Credits](#-credits)
 
 ---
 
